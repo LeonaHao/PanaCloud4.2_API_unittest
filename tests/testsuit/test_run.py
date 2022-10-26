@@ -2,7 +2,7 @@
 # @Time: 2022/10/19 14:04
 # @Author: Leona
 # @File: test_run.py
-
+import sys
 import unittest
 import time
 from configs.base_config import testCasePath,report_file
