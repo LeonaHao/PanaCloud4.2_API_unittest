@@ -30,3 +30,4 @@ with open(report_file,'wb') as rf:
 
 time.sleep(5)
 send_email.send_email("【QA环境】PanaCloud4.2_接口测试报告")
+

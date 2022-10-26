@@ -9,8 +9,8 @@
 
 
 '''基础地址'''
-baseUrl= 'http://192.168.7.231/1.0'
-# baseUrl= 'http://192.168.7.75/1.0'
+# baseUrl= 'http://192.168.7.231/1.0'
+baseUrl= 'http://192.168.7.75/1.0'
 
 '''登录接口'''
 loginUrl = baseUrl+'/login'
@@ -19,7 +19,7 @@ logoutUrl = baseUrl + '/logout'
 
 
 '''业务池管理'''
-busiPoolMgtUrl = '/projects'
+busiPoolMgtUrl = baseUrl + '/projects'
 
 
 '''规格管理'''

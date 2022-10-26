@@ -3,13 +3,14 @@
 # @Author: Leona
 # @File: busipool_mgt.py
 
-from lib.my_unit import MyUnit
 from configs.url_configs import busiPoolMgtUrl
 import requests
+from lib.handle_yaml import read_yaml
+
 
 
 class BusiPoolMgt():
-
+    token = read_yaml('token.yaml')
 
     #新建业务池
     def cre_busi_pool(self,num):
@@ -18,11 +19,11 @@ class BusiPoolMgt():
         :return:
         '''
         self.headers = {'Content-Type': 'application/json',
-                        'Authorization': self.token}
+                        'Authorization':self.token}
 
         creBusiPoolParam = {
             "name":"AutoBP"+str(num),
-            "description":"",
+            "description":"自动化脚本创建的业务池",
             "limits_cpu":"2",
             "limits_memory":"2",
             "limits_networks":"2",
@@ -49,4 +50,6 @@ class BusiPoolMgt():
         print(creBusiPoolRes)
 
 if __name__ == '__main__':
-    BusiPoolMgt.cre_busi_pool(2)
+    bp = BusiPoolMgt()
+    bp.cre_busi_pool(3)
+
