@@ -3,7 +3,7 @@
 # @Author: Leona
 # @File: log.py
 
-from configs.base_config import logPath
+from conf.base_config import logPath
 import logging
 import time
 import os

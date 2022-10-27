@@ -8,7 +8,7 @@ import json
 from lib.my_unit import MyUnit
 from lib.generateTestCases import __generateTestCases
 from lib.log import logger
-from configs.url_configs import flavorMgtUrl
+from conf.url_configs import flavorMgtUrl
 from lib.commonSQL import get_latest_flavor
 
 

@@ -2,10 +2,14 @@
 # @Time: 2022/10/19 14:04
 # @Author: Leona
 # @File: test_run.py
+
 import sys
+import os
+basedir = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+sys.path.append(basedir)
 import unittest
 import time
-from configs.base_config import testCasePath,report_file
+from conf.base_config import testCasePath,report_file
 from lib import send_email
 from lib import HTMLTestRunner3,HTMLTestRunnerCN,handle_yaml
 from lib.login import login

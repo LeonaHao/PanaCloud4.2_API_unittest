@@ -5,7 +5,7 @@
 
 import os
 from lib import read_excel
-from configs.base_config import dataPath
+from conf.base_config import dataPath
 
 ''''
 1、写一个testcase 生成报告后，会有一个case的执行状态记录。

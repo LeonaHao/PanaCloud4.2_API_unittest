@@ -5,7 +5,7 @@
 
 import os
 import yaml
-from configs.base_config import libPath
+from conf.base_config import libPath
 
 #读取yaml文件中的token
 def read_yaml(yamlFile="token.yaml"):

@@ -5,7 +5,7 @@
 
 import unittest
 import os
-from configs.base_config import libPath
+from conf.base_config import libPath
 from lib.log import logger
 from lib.handle_yaml import read_yaml
 

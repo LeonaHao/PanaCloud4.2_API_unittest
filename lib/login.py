@@ -5,7 +5,7 @@
 
 import requests
 import urllib3
-from configs import url_configs
+from conf import url_configs
 
 
 #获取登录token

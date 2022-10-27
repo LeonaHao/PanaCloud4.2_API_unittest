@@ -3,7 +3,7 @@
 # @Author: Leona
 # @File: busipool_mgt.py
 
-from configs.url_configs import busiPoolMgtUrl
+from conf.url_configs import busiPoolMgtUrl
 import requests
 from lib.handle_yaml import read_yaml
 

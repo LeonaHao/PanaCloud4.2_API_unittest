@@ -5,7 +5,7 @@
 
 
 import pymysql
-from configs import base_config
+from conf import base_config
 from lib.log import logger
 
 

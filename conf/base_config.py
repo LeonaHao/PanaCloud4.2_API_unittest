@@ -7,8 +7,10 @@
 '''
 配置项目相关路径、发送邮件、访问数据库功能
 '''
-
+import sys
 import os
+basedir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+sys.path.append(basedir)
 import pymysql
 import time
 
