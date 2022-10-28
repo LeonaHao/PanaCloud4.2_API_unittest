@@ -24,3 +24,4 @@ busiPoolMgtUrl = baseUrl + '/projects'
 
 '''规格管理'''
 flavorMgtUrl = baseUrl + '/flavors'
+delFlavorUrl = baseUrl + '/flavors/batch-delete'

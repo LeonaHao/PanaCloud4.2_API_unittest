@@ -11,3 +11,5 @@ def param_csombine(**kwargs):
         a += "%s=%s" % (x, y) + "&"
     # return时要剔除最后的&符号
     return a[0:len(a) - 1]
+
+
