@@ -36,6 +36,9 @@ userGroupMgtUrl =  baseUrl + '/user_group/'
 addGroupMemberUrl = baseUrl + '/group_member/'
 removeGroupMemberUrl = baseUrl +'/group_member_delete/'
 
+'''身份管理》角色管理'''
+roleMgtUrl = baseUrl +'/roles'
+
 
 '''安全组'''
 securityGrpUrl = baseUrl + 'network-acls'
