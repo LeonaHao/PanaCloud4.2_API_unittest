@@ -25,3 +25,17 @@ busiPoolMgtUrl = baseUrl + '/projects'
 '''规格管理'''
 flavorMgtUrl = baseUrl + '/flavors'
 delFlavorUrl = baseUrl + '/flavors/batch-delete'
+
+
+'''身份管理》用户管理'''
+userMgtUrl =  baseUrl +'/users'
+delUserUrl =  baseUrl +'/users_delete/'
+
+'''身份管理》用户组管理'''
+userGroupMgtUrl =  baseUrl + '/user_group/'
+addGroupMemberUrl = baseUrl + '/group_member/'
+removeGroupMemberUrl = baseUrl +'/group_member_delete/'
+
+
+'''安全组'''
+securityGrpUrl = baseUrl + 'network-acls'

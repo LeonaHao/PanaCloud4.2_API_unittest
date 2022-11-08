@@ -29,7 +29,7 @@ class GetFlavor(MyUnit):
         logger.info("*******测试案例名称： TestCase" + caseNum + "_" + caseName + " 执行开始********")
         reqParam = json.JSONDecoder().decode(tx['params'])
         logger.info("*******测试数据： " + str(reqParam))
-        if flag == 1:
+        if flag == 0:
             self.headers['Authorization'] = ''
         res = requests.get(url=flavorMgtUrl, headers=self.headers,data=reqParam).json()
         logger.info("*******返回数据： " + str(res))
