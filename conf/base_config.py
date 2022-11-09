@@ -34,10 +34,10 @@ panacloud = dict(host='192.168.7.75', user='root', passwd='P@ssw0rd', port=3306,
 panastor = dict(host='192.168.7.75', user='root', passwd='Admin@9000', port=3306,db='panastor', charset='utf8', cursorclass=pymysql.cursors.DictCursor)
 
 """邮件配置"""
-sender = 'Udsafe_QA@163.com'      #发件人
-receiver = 'lijj@udsafe.com.cn'  #收件人
+sender = 'qa_auto@udsafe.com.cn'      #发件人
+receiver = 'qa@udsafe.com.cn'  #收件人
 
-server = 'smtp.163.com'   #邮件服务器
-emailusername = 'Udsafe_QA@163.com'   #邮箱账号
-emailpassword = 'LZYECWAFYVLNYQPH'  #登陆邮箱的授权码，是授权码，不是邮箱密码
+server = 'smtp.mxhichina.com'   #邮件服务器
+emailusername = 'qa_auto@udsafe.com.cn'   #邮箱账号
+emailpassword = 'Udsafe888'  #登陆邮箱的授权码，是授权码，不是邮箱密码
 

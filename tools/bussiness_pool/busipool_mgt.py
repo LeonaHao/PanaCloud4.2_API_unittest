@@ -6,7 +6,7 @@
 from conf.url_configs import busiPoolMgtUrl
 import requests,random
 from lib.handle_yaml import read_yaml
-from lib.commonPanaCloud import get_busi_pool
+from lib.commonPanaCloud import getBusiPool,getSecurityGroup
 
 token = read_yaml('token.yaml')
 switch4PoolSecurity = ['true','false']   #设置业务池是否开启池安全
@@ -100,19 +100,20 @@ if __name__ == '__main__':
     # batch_cre_busi_pool(13,3)
 
     #查询业务池中带有Auto字样的业务池
-    data =get_busi_pool()['data']
+    data =getBusiPool()['data']
     poolIdList = []
     for item in data:
         if 'Auto' in item['name']:
             poolIdList.append(item['id'])
 
-    #查找业务池的id以及业务池内默认安全组的id，以便在底层删除使用
+    print(poolIdList)
+    #查找业务池的id以及业务池内默认安全组的id，以便在底层删除使用,底层通过    ocs project switch {poolId}、   ocs network acl delete  {securityGroupId}
     # for poolId in poolIdList:
-    #     securityGroups = get_securityGroup(poolId)
+    #     securityGroups = getSecurityGroup(poolId)
     #     for sg in securityGroups:
     #         print("业务池{}的安全组有{}".format(poolId,sg['id']))
 
-    #删除业务池
+    # 删除业务池
     for poolId in poolIdList:
         del_busi_pool(poolId)
 

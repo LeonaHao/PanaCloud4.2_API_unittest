@@ -41,4 +41,4 @@ roleMgtUrl = baseUrl +'/roles'
 
 
 '''安全组'''
-securityGrpUrl = baseUrl + 'network-acls'
+securityGrpUrl = baseUrl + '/network-acls'

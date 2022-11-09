@@ -49,7 +49,7 @@ class DelFlavor(MyUnit):
         return func
 
 
-__generateTestCases(DelFlavor, "delFlavor", "flavorMgtData.xlsx", "delFlavor")
+__generateTestCases(DelFlavor, "flavorMgtData.xlsx", "delFlavor")
 
 if __name__ == '__main__':
     MyUnit.main()

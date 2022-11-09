@@ -45,7 +45,7 @@ class GetBusiPool(MyUnit):
         return func
 
 
-__generateTestCases(GetBusiPool, "getBusiPool", "busipoolMgtData.xlsx", "getBusiPool")
+__generateTestCases(GetBusiPool, "busipoolMgtData.xlsx", "getBusiPool")
 
 if __name__ == '__main__':
     MyUnit.main()

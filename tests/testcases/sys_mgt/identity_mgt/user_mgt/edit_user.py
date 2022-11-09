@@ -65,7 +65,7 @@ class EditUser(MyUnit):
         return func
 
 
-__generateTestCases(EditUser, "editUser", "userMgtData.xlsx", "editUser")
+__generateTestCases(EditUser,"userMgtData.xlsx", "editUser")
 
 if __name__ == '__main__':
     MyUnit.main()

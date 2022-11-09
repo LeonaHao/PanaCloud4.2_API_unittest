@@ -53,7 +53,7 @@ class RemoveGroupMember(MyUnit):
         return func
 
 
-__generateTestCases(RemoveGroupMember, "removeGroupMember", "userGroupMgtData.xlsx", "removeGroupMember")
+__generateTestCases(RemoveGroupMember, "userGroupMgtData.xlsx", "removeGroupMember")
 
 if __name__ == '__main__':
     MyUnit.main()

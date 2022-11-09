@@ -58,7 +58,7 @@ class DelUserGroup(MyUnit):
         return func
 
 
-__generateTestCases(DelUserGroup, "delUserGroup", "userGroupMgtData.xlsx", "delUserGroup")
+__generateTestCases(DelUserGroup, "userGroupMgtData.xlsx", "delUserGroup")
 
 if __name__ == '__main__':
     MyUnit.main()

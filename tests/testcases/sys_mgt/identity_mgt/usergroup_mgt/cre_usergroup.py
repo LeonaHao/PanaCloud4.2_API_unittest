@@ -51,7 +51,7 @@ class CreUserGroup(MyUnit):
         return func
 
 
-__generateTestCases(CreUserGroup, "creUserGroup", "userGroupMgtData.xlsx", "creUserGroup")
+__generateTestCases(CreUserGroup, "userGroupMgtData.xlsx", "creUserGroup")
 
 if __name__ == '__main__':
     MyUnit.main()

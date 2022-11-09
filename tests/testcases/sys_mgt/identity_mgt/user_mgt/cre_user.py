@@ -59,7 +59,7 @@ class CreUser(MyUnit):
         return func
 
 
-__generateTestCases(CreUser, "creUser", "userMgtData.xlsx", "creUser")
+__generateTestCases(CreUser, "userMgtData.xlsx", "creUser")
 
 if __name__ == '__main__':
     MyUnit.main()

@@ -50,7 +50,7 @@ class DelUser(MyUnit):
         return func
 
 
-__generateTestCases(DelUser, "delUser", "userMgtData.xlsx", "delUser")
+__generateTestCases(DelUser,"userMgtData.xlsx", "delUser")
 
 if __name__ == '__main__':
     MyUnit.main()

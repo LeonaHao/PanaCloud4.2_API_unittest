@@ -49,7 +49,7 @@ class SearchUser(MyUnit):
         return func
 
 
-__generateTestCases(SearchUser, "searchUser", "userMgtData.xlsx", "searchUser")
+__generateTestCases(SearchUser, "userMgtData.xlsx", "searchUser")
 
 if __name__ == '__main__':
     MyUnit.main()

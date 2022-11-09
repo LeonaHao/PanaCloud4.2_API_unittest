@@ -44,7 +44,8 @@ class GetFlavor(MyUnit):
         return func
 
 
-__generateTestCases(GetFlavor, "getFlavor", "flavorMgtData.xlsx", "getFlavor")
+__generateTestCases(GetFlavor,"flavorMgtData.xlsx", "getFlavor")
+
 
 if __name__ == '__main__':
     MyUnit.main()

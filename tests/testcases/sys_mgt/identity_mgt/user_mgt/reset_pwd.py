@@ -52,7 +52,7 @@ class ResetPwd(MyUnit):
         return func
 
 
-__generateTestCases(ResetPwd, "resetPwd", "userMgtData.xlsx", "resetPwd")
+__generateTestCases(ResetPwd, "userMgtData.xlsx", "resetPwd")
 
 if __name__ == '__main__':
     MyUnit.main()

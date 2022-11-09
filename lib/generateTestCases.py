@@ -23,9 +23,10 @@ from conf.base_config import dataPath
 • 在某个地方注册这个添加test成员函数的调用(只需要在实际执行前就可以，可以放在模块中自动执行亦可以手动调用)
 '''
 
-"""类的实例、被测试的接口名称、测试数据文件名、测试数据表单名称"""
-def __generateTestCases (instanse, inerfaceName, tesDataName, sheetName):
+"""类的实例、测试数据文件名、测试数据表单名称"""
+def __generateTestCases (instanse,  tesDataName, sheetName):
     file = os.path.join(dataPath, tesDataName)
     data_list = read_excel.excel_to_list(file, sheetName)
     for i in range(len(data_list)):
-        setattr(instanse, 'test_'+inerfaceName+'_%s'%(str(data_list[i]["test_num"]))+'_%s' % (str(data_list[i]["test_name"])), instanse.getTestFunc(data_list[i]))
+        setattr(instanse, 'test_'+'_%s'%(str(data_list[i]["test_num"]))+'_%s' % (str(data_list[i]["test_name"])), instanse.getTestFunc(data_list[i]))
+

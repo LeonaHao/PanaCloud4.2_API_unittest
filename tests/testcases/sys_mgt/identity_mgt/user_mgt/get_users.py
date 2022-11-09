@@ -45,7 +45,7 @@ class GetUsers(MyUnit):
         return func
 
 
-__generateTestCases(GetUsers, "getUsers", "userMgtData.xlsx", "getUsers")
+__generateTestCases(GetUsers, "userMgtData.xlsx", "getUsers")
 
 if __name__ == '__main__':
     MyUnit.main()

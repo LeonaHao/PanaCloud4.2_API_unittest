@@ -44,7 +44,7 @@ class GetRole(MyUnit):
         return func
 
 
-__generateTestCases(GetRole, "getRole", "roleMgtData.xlsx", "getRole")
+__generateTestCases(GetRole, "roleMgtData.xlsx", "getRole")
 
 if __name__ == '__main__':
     MyUnit.main()

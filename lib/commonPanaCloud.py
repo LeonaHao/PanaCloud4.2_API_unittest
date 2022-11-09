@@ -32,12 +32,14 @@ def getBusiPool():
         print(e)
 
 #获取某个业务池的安全组数据
-def get_securityGroup(poolId):
+def getSecurityGroup(poolId):
     try:
-        securityGrpList = requests.get(url=securityGrpUrl+'?project_id='+str(poolId),headers=headers).json()
+        securityGrpList = requests.get(url=securityGrpUrl + '?project_id=' + str(poolId),headers=headers).json()
         return securityGrpList['data']
     except Exception as e:
         print(e)
+
+
 
 
 

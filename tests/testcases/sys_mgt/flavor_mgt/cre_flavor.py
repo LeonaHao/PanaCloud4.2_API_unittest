@@ -53,7 +53,8 @@ class CreFlavor(MyUnit):
         return func
 
 
-__generateTestCases(CreFlavor, "creFlavor", "flavorMgtData.xlsx", "creFlavor")
+__generateTestCases(CreFlavor, "flavorMgtData.xlsx", "creFlavor")
+
 
 if __name__ == '__main__':
     MyUnit.main()

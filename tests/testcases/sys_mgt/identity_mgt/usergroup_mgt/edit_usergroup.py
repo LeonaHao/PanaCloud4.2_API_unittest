@@ -60,7 +60,7 @@ class EditUserGroup(MyUnit):
         return func
 
 
-__generateTestCases(EditUserGroup, "editUserGroup", "userGroupMgtData.xlsx", "editUserGroup")
+__generateTestCases(EditUserGroup, "userGroupMgtData.xlsx", "editUserGroup")
 
 if __name__ == '__main__':
     MyUnit.main()

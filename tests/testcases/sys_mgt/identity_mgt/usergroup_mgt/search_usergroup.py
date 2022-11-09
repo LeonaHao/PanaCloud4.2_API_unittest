@@ -48,7 +48,7 @@ class SearchUserGroup(MyUnit):
         return func
 
 
-__generateTestCases(SearchUserGroup, "searchUserGroup", "userGroupMgtData.xlsx", "searchUserGroup")
+__generateTestCases(SearchUserGroup, "userGroupMgtData.xlsx", "searchUserGroup")
 
 if __name__ == '__main__':
     MyUnit.main()

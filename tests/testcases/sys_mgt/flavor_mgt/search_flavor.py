@@ -43,7 +43,7 @@ class SearchFlavor(MyUnit):
         return func
 
 
-__generateTestCases(SearchFlavor, "searchFlavor", "flavorMgtData.xlsx", "searchFlavor")
+__generateTestCases(SearchFlavor,"flavorMgtData.xlsx", "searchFlavor")
 
 if __name__ == '__main__':
     MyUnit.main()

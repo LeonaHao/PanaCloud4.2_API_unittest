@@ -48,7 +48,7 @@ class CreBusiPool(MyUnit):
         return func
 
 
-__generateTestCases(CreBusiPool, "creBusiPool", "busipoolMgtData.xlsx", "creBusiPool")
+__generateTestCases(CreBusiPool, "busipoolMgtData.xlsx", "creBusiPool")
 
 if __name__ == '__main__':
     MyUnit.main()

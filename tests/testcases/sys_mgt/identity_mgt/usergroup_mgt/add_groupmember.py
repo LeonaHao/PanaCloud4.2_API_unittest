@@ -52,7 +52,7 @@ class AddGroupMember(MyUnit):
         return func
 
 
-__generateTestCases(AddGroupMember, "addGroupMember", "userGroupMgtData.xlsx", "addGroupMember")
+__generateTestCases(AddGroupMember, "userGroupMgtData.xlsx", "addGroupMember")
 
 if __name__ == '__main__':
     MyUnit.main()

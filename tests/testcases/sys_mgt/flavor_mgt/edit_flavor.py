@@ -53,7 +53,7 @@ class EditFlavor(MyUnit):
         return func
 
 
-__generateTestCases(EditFlavor, "editFlavor", "flavorMgtData.xlsx", "editFlavor")
+__generateTestCases(EditFlavor, "flavorMgtData.xlsx", "editFlavor")
 
 if __name__ == '__main__':
     MyUnit.main()
