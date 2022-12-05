@@ -42,7 +42,7 @@ class CreUser(MyUnit):
             reqParam['state'] = random.choice(['0', '1'])
         if flag ==2:
             latestUser = get_latest_user()
-            reqParam['name'] = latestUser['username']
+            reqParam['username'] = latestUser['username']
         if flag == 3:
             reqParam['username'] = reqParam['username']  + str(random.randint(10,99))
         logger.info("*******测试数据： " + str(reqParam))

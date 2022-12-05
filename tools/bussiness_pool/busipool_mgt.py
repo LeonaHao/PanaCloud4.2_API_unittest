@@ -6,7 +6,7 @@
 from conf.url_configs import busiPoolMgtUrl
 import requests,random
 from lib.handle_yaml import read_yaml
-from lib.commonPanaCloud import getBusiPool,getSecurityGroup
+from lib.commonPanaCloud import getBusiPool,getSecurityGroup,del_busi_pool
 
 token = read_yaml('token.yaml')
 switch4PoolSecurity = ['true','false']   #设置业务池是否开启池安全
@@ -78,22 +78,6 @@ def batch_cre_busi_pool(num,n ):
 
 
 
-'''删除业务池'''
-def del_busi_pool(poolId):
-    try:
-        headers = {'Content-Type': 'application/json',
-                   'Authorization': token}
-        url = busiPoolMgtUrl + '/' + str(poolId)
-        print(url)
-        poolDelRes = requests.delete(url=url,headers=headers).json()
-        if poolDelRes['code'] == 0:
-            print("***************业务池删除成功***************")
-        else:
-            print("***************业务池删除失败,结果为{}***************".format(poolDelRes))
-    except Exception as e:
-        print(e)
-
-
 if __name__ == '__main__':
 
     # cre_busi_pool(3)
@@ -106,7 +90,6 @@ if __name__ == '__main__':
         if 'Auto' in item['name']:
             poolIdList.append(item['id'])
 
-    print(poolIdList)
     #查找业务池的id以及业务池内默认安全组的id，以便在底层删除使用,底层通过    ocs project switch {poolId}、   ocs network acl delete  {securityGroupId}
     # for poolId in poolIdList:
     #     securityGroups = getSecurityGroup(poolId)
