@@ -10,7 +10,7 @@
 
 '''基础地址'''
 # baseUrl= 'http://192.168.7.231/1.0'
-baseUrl= 'http://192.168.7.75/1.0'
+baseUrl= 'http://172.16.16.1/1.0'
 
 '''登录接口'''
 loginUrl = baseUrl+'/login'
@@ -28,6 +28,10 @@ delKeyUrl = baseUrl + '/delete_secret/'
 
 '''业务池管理'''
 busiPoolMgtUrl = baseUrl + '/projects'
+busiPoolUserUrl = baseUrl + '/pool_user'          #业务池成员
+
+
+
 
 '''存储池管理'''
 storPoolMgtUrl = baseUrl + '/storage-pools'
@@ -51,6 +55,10 @@ removeGroupMemberUrl = baseUrl + '/group_member_delete/'
 '''身份管理》角色管理'''
 roleMgtUrl = baseUrl + '/roles'
 
+
+
+'''运维管理》数据中心'''
+dcURL = baseUrl + '/datacenters'
 
 
 '''云中心》镜像'''

@@ -41,22 +41,22 @@ def cre_busi_pool(num):
 
         #设置开启池安全时的参数
         if creBusiPoolParam['restricted'] == 'true':
-            creBusiPoolParam['restricted_containers_nesting'] = random.choice(allowBlockList)
-            creBusiPoolParam['restricted_containers_privilege'] = random.choice(privilegeList)
-            creBusiPoolParam['restricted_backups'] = random.choice(allowBlockList)
+            creBusiPoolParam['restricted_containers_nesting'] = random.choice(allowBlockList)      #嵌套(PanaOCS)
+            creBusiPoolParam['restricted_containers_privilege'] = random.choice(privilegeList)     #特权(PanaOCS)
+            creBusiPoolParam['restricted_backups'] = random.choice(allowBlockList)                 #启用备份
             if creBusiPoolParam['restricted_backups'] == 'allow':
-                creBusiPoolParam['backups_compression_algorithm'] = random.choice(compressionList)
-            creBusiPoolParam['restricted_snapshots']= random.choice(allowBlockList)
-            creBusiPoolParam['restricted_devices_disk'] = random.choice(deviceMgtList)
+                creBusiPoolParam['backups_compression_algorithm'] = random.choice(compressionList)  #备份压缩级别
+            creBusiPoolParam['restricted_snapshots']= random.choice(allowBlockList)                 #启用创建云组件/云硬盘快照
+            creBusiPoolParam['restricted_devices_disk'] = random.choice(deviceMgtList)              #硬盘设备
             if creBusiPoolParam['restricted_devices_disk'] == 'allow':
-                creBusiPoolParam['restricted_devices_disk_paths'] = '/'+(random.choice(diskPathList)+(random.choice(diskPathList)))
-            creBusiPoolParam['restricted_devices_gpu'] = random.choice(allowBlockList)
-            creBusiPoolParam['restricted_devices_usb'] = random.choice(allowBlockList)
-            creBusiPoolParam['restricted_devices_nic'] = random.choice(deviceMgtList)
-            creBusiPoolParam['restricted_devices_pci']  = random.choice(allowBlockList)
-            creBusiPoolParam['restricted_devices_unix_block']  = random.choice(allowBlockList)
-            creBusiPoolParam['restricted_devices_pci']  = random.choice(allowBlockList)
-            #缺少系统调用拦截PanaOCS的参数
+                creBusiPoolParam['restricted_devices_disk_paths'] = '/'+(random.choice(diskPathList)+(random.choice(diskPathList)))    #硬盘路径限制
+            creBusiPoolParam['restricted_devices_gpu'] = random.choice(allowBlockList)               #GPU设备
+            creBusiPoolParam['restricted_devices_usb'] = random.choice(allowBlockList)               #USB设备
+            creBusiPoolParam['restricted_devices_nic'] = random.choice(deviceMgtList)                #网卡设备
+            creBusiPoolParam['restricted_devices_pci']  = random.choice(allowBlockList)              #PCI设备
+            creBusiPoolParam['restricted_devices_unix_block']  = random.choice(allowBlockList)       #UNIX-BLOCK设备(PanaOCS)
+            creBusiPoolParam['restricted_containers_interception'] = random.choice(allowBlockList)   #系统调用拦截PanaOCS的参数
+
 
             # 设置池数据保护的参数------目前未实现
 
@@ -83,7 +83,7 @@ if __name__ == '__main__':
     # cre_busi_pool(3)
     # batch_cre_busi_pool(13,3)
 
-    #查询业务池中带有Auto字样的业务池
+    # 查询业务池中带有Auto字样的业务池
     data =getBusiPool()['data']
     poolIdList = []
     for item in data:
@@ -99,7 +99,6 @@ if __name__ == '__main__':
     # 删除业务池
     for poolId in poolIdList:
         del_busi_pool(poolId)
-
 
 
 

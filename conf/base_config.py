@@ -30,12 +30,12 @@ curTime = time.strftime("%Y-%m-%d %H-%M-%S",time.localtime())
 report_file = os.path.join(basedir, 'reports',curTime +"_report.html")
 
 """数据库配置"""
-panacloud = dict(host='192.168.7.75', user='root', passwd='P@ssw0rd', port=3306,db='panacube4', charset='utf8', cursorclass=pymysql.cursors.DictCursor)
-panastor = dict(host='192.168.7.75', user='root', passwd='Admin@9000', port=3306,db='panastor', charset='utf8', cursorclass=pymysql.cursors.DictCursor)
+panacloud = dict(host='172.16.16.1', user='root', passwd='P@ssw0rd', port=3306,db='panacube4', charset='utf8', cursorclass=pymysql.cursors.DictCursor)
+panastor = dict(host='172.16.16.1', user='root', passwd='Admin@9000', port=3306,db='panastor', charset='utf8', cursorclass=pymysql.cursors.DictCursor)
 
 """邮件配置"""
 sender = 'qa_auto@udsafe.com.cn'      #发件人
-receiver = 'qa@udsafe.com.cn'  #收件人
+receiver = 'lijj@udsafe.com.cn'  #收件人
 
 server = 'smtp.mxhichina.com'   #邮件服务器
 emailusername = 'qa_auto@udsafe.com.cn'   #邮箱账号

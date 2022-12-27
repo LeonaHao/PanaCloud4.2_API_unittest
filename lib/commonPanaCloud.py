@@ -56,6 +56,17 @@ def getSecurityGroup(poolId):
         print(e)
 
 
+
+'''获取区域数据'''
+def getDC():
+    try:
+        DCList = requests.get(url=dcURL ,headers=headers).json()
+        return DCList['data']
+    except Exception as e:
+        print(e)
+
+
+
 '''获取用户数据'''
 def getUsers():
     try:
@@ -118,3 +129,4 @@ def getLatestKey():
 # getUserGroup()
 # delUserGroup()
 # delUsers()
+# getBusiPool()
