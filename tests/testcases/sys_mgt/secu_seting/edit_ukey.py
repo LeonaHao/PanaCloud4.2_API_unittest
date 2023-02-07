@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 # @Time: 2022/12/28 14:30
 # @Author: Leona
-# @File: edit_key.py
+# @File: edit_ukey.py
 
 import requests
 import json
@@ -47,7 +47,7 @@ class EditUkey(MyUnit):
         return func
 
 
-__generateTestCases(EditUkey, "flavorMgtData.xlsx", "EditUkey")
+__generateTestCases(EditUkey, "sysMgtData.xlsx", "editUKey")
 
 if __name__ == '__main__':
     MyUnit.main()

@@ -11,6 +11,7 @@ from lib.generateTestCases import __generateTestCases
 from lib.log import logger
 from conf.url_configs import busiPoolMgtUrl
 from lib.commonPanaCloud import getBusiPool
+from lib.commonPanaCloud import getDC
 
 
 """
@@ -28,8 +29,14 @@ class EditBusiPool(MyUnit):
     diskPathList = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't',
                     'u', 'v', 'w', 'x', 'y', 'z']  # 设置云硬盘路径
 
+    global regionInfo
+    regionInfo = getDC()
+
+
     def getTest(self, tx):
         logger.info("****************编辑业务池接口开始****************")
+
+        self.headers['region'] = regionInfo[0]['name']
         caseNum = tx['test_num']
         caseName = tx['test_name']
         code = tx['code']
@@ -49,22 +56,33 @@ class EditBusiPool(MyUnit):
         reqParam['restricted'] = random.choice(self.switch4PoolSecurity)
         # 设置开启池安全时的参数
         if reqParam['restricted'] == 'true':
-            reqParam['restricted_containers_nesting'] = random.choice(self.allowBlockList)  # 嵌套(PanaOCS)
-            reqParam['restricted_containers_privilege'] = random.choice(self.privilegeList)  # 特权(PanaOCS)
-            reqParam['restricted_backups'] = random.choice(self.allowBlockList)  # 启用备份
-            if reqParam['restricted_backups'] == 'allow':
-                reqParam['backups_compression_algorithm'] = random.choice(self.compressionList)  # 备份压缩级别
-            reqParam['restricted_snapshots'] = random.choice(self.allowBlockList)  # 启用创建云组件/云硬盘快照
-            reqParam['restricted_devices_disk'] = random.choice(self.deviceMgtList)  # 硬盘设备
+            #配置云组件时的参数
+            reqParam['restricted_cluster_target'] = random.choice(self.allowBlockList)          #允许指定主机
+            reqParam['restricted_containers_nesting'] = random.choice(self.allowBlockList)      #嵌套(PanaOCS)
+            reqParam['restricted_containers_privilege'] = random.choice(self.privilegeList)     #特权(PanaOCS)
+            reqParam['restricted_containers_interception'] = random.choice(self.allowBlockList)  #系统调用拦截PanaOCS的参数
+            reqParam['restricted_containers_lowlevel']= random.choice(self.allowBlockList)       #使用低级选项（PanaOCS）
+            if reqParam['restricted_containers_lowlevel']=='allow':
+                reqParam['restricted_idmap_gid'] = random.randint(0,65535)                       #idmap.uid可用范围
+                reqParam['restricted_idmap_uid'] = random.randint(0, 65535)                      #idmap.gid可用范围
+            reqParam['restricted_virtual_machines_lowlevel']= random.choice(self.allowBlockList)  #使用低级选项（PanaVM）
+
+            #配置设备时的参数
+            reqParam['restricted_devices_disk'] = random.choice(self.deviceMgtList)              #硬盘设备
             if reqParam['restricted_devices_disk'] == 'allow':
-                reqParam['restricted_devices_disk_paths'] = '/' + (
-                            random.choice(self.diskPathList) + (random.choice(self.diskPathList)))  # 硬盘路径限制
-            reqParam['restricted_devices_gpu'] = random.choice(self.allowBlockList)  # GPU设备
-            reqParam['restricted_devices_usb'] = random.choice(self.allowBlockList)  # USB设备
-            reqParam['restricted_devices_nic'] = random.choice(self.deviceMgtList)  # 网卡设备
-            reqParam['restricted_devices_pci'] = random.choice(self.allowBlockList)  # PCI设备
-            reqParam['restricted_devices_unix_block'] = random.choice(self.allowBlockList)  # UNIX-BLOCK设备(PanaOCS)
-            reqParam['restricted_containers_interception'] = random.choice(self.allowBlockList)  # 系统调用拦截PanaOCS的参数
+                reqParam['restricted_devices_disk_paths'] = '/'+(random.choice(self.diskPathList)+(random.choice(self.diskPathList)))    #硬盘路径限制
+            reqParam['restricted_devices_usb'] = random.choice(self.allowBlockList)               #USB设备
+            reqParam['restricted_devices_nic'] = random.choice(self.deviceMgtList)                #网卡设备
+            reqParam['restricted_devices_pci']  = random.choice(self.allowBlockList)              #PCI设备
+            reqParam['restricted_devices_unix_block']  = random.choice(self.allowBlockList)       #UNIX-BLOCK设备
+            reqParam['restricted_devices_unix_char']  = random.choice(self.allowBlockList)       #UNIX-char设备
+            reqParam['restricted_devices_unix_hotplug']  = random.choice(self.allowBlockList)     #Unix Hotplug设备
+            # reqParam['restricted_devices_gpu'] = random.choice(self.allowBlockList)               #GPU设备
+
+            #配置网络时的参数
+
+            # 配置数据保护时的参数
+            reqParam['restricted_snapshots'] = random.choice(self.allowBlockList)  # 启用创建云组件/云硬盘快照
 
         if flag == 0:
             self.headers['Authorization'] = ''

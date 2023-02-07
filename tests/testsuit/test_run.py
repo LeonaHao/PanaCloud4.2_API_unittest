@@ -15,6 +15,7 @@ from lib import HTMLTestRunner3,HTMLTestRunnerCN,handle_yaml
 from lib.login import login
 
 
+
 '''将token写入到yaml文件'''
 token = {"token":login("admin","P@ssw0rd")}
 handle_yaml.write_yaml(token,'token.yaml')
@@ -25,6 +26,7 @@ handle_yaml.write_yaml(token,'token.yaml')
 通过该类下面的discover()方法可自动根据测试目录start_dir匹配查找测试用例文件（testcase*.py），
 并将查找到的测试用例组装到测试套件，因此可以直接通过run()方法执行discover"""
 suite = unittest.defaultTestLoader.discover(testCasePath, pattern='*.py')
+# suite = unittest.defaultTestLoader.discover(os.path.join(testCasePath,'sys_mgt'), pattern='*.py')
 
 
 with open(report_file,'wb') as rf:

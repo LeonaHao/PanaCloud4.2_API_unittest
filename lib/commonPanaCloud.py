@@ -7,11 +7,26 @@ import requests
 import json
 from lib.handle_yaml import read_yaml
 from conf.url_configs import *
+from faker import Faker
+import random
 
 
 token = read_yaml('token.yaml')
 headers = {'Content-Type': 'application/json',
            'Authorization': token}
+# 定义faker对象
+faker = Faker(locale='zh_CN')
+
+
+'''获取区域数据'''
+def getDC():
+    try:
+        DCList = requests.get(url=dcURL ,headers=headers).json()
+        return DCList['data']
+    except Exception as e:
+        print(e)
+
+
 
 '''获取最新一条规格信息'''
 def getLatestFlavor():
@@ -26,6 +41,8 @@ def getLatestFlavor():
 '''获取业务池列表'''
 def getBusiPool():
     try:
+        regionInfo = getDC()
+        headers['region'] = regionInfo[0]['name']
         poolListRes = requests.get(url=busiPoolMgtUrl,headers=headers).json()
         return poolListRes
     except Exception as e:
@@ -57,13 +74,6 @@ def getSecurityGroup(poolId):
 
 
 
-'''获取区域数据'''
-def getDC():
-    try:
-        DCList = requests.get(url=dcURL ,headers=headers).json()
-        return DCList['data']
-    except Exception as e:
-        print(e)
 
 
 
@@ -74,6 +84,26 @@ def getUsers():
         return userList['data']
     except Exception as e:
         print(e)
+
+
+'''创建用户数据，state=0，禁用； state=1，激活'''
+def creUsers(state):
+    try:
+        reqParam ={
+                "username":'uName' + str(random.randint(0,9999)),
+                "realname":faker.name(),
+                "email":faker.free_email(),
+                "phone":faker.phone_number(),
+                "description":"自动化脚本创建的用户",
+                "state":state,
+                "password":"11112222",
+                "confirmPassword":"11112222"
+            }
+        userRes = requests.post(url=userMgtUrl ,headers=headers,json=reqParam,verify=False).json()
+        return userRes['data']
+    except Exception as e:
+        print(e)
+
 
 
 '''删除用户数据'''
@@ -130,3 +160,7 @@ def getLatestKey():
 # delUserGroup()
 # delUsers()
 # getBusiPool()
+# creUsers(0)
+# print(getDC())
+
+getBusiPool()

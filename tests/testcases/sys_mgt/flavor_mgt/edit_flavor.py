@@ -10,7 +10,7 @@ from lib.generateTestCases import __generateTestCases
 from lib.log import logger
 from conf.url_configs import flavorMgtUrl
 from lib.commonPanaCloud import getLatestFlavor
-from lib.commonSQL import get_latest_sysFlavor
+from lib.commonSQL import get_latest_sysFlavor,get_old_sysFlavor
 
 
 """
@@ -36,8 +36,8 @@ class EditFlavor(MyUnit):
         if flag == 1:
             reqParam['name'] = latestFlavor['name'] + "_update"
         if flag == 2:
-            latestSysFlavor = get_latest_sysFlavor()
-            reqParam['name'] = latestSysFlavor['name']
+            oldSysFlavor = get_old_sysFlavor()
+            reqParam['name'] = oldSysFlavor['name']
         logger.info("*******测试数据： " + str(reqParam))
         result = requests.put(url=reqUrl, headers=self.headers, json=reqParam, verify=False).json()
         logger.info("*******返回数据： " + str(result))

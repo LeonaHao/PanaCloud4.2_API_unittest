@@ -10,7 +10,7 @@ from lib.my_unit import MyUnit
 from lib.generateTestCases import __generateTestCases
 from lib.log import logger
 from conf.url_configs import busiPoolMgtUrl
-
+from lib.commonPanaCloud import getDC
 
 """
 管理视图》业务池》获取业务池
@@ -19,10 +19,13 @@ from conf.url_configs import busiPoolMgtUrl
 
 class GetBusiPool(MyUnit):
     """管理视图》业务池》获取业务池"""
+    global regionInfo
+    regionInfo = getDC()
 
     def getTest(self, tx):
         logger.info("****************获取业务池接口开始****************")
 
+        self.headers['region'] = regionInfo[0]['name']
         caseNum = tx['test_num']
         caseName = tx['test_name']
         code = tx['code']

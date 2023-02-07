@@ -9,8 +9,11 @@
 
 
 '''基础地址'''
-# baseUrl= 'http://192.168.7.231/1.0'
-baseUrl= 'http://172.16.16.1/1.0'
+# baseUrl= 'http://172.16.80.1/1.0'
+# baseUrl= 'http://172.16.16.1/1.0'
+baseUrl= 'http://172.16.20.1/1.0'                   #基础地址配置变更后，要同步更新base_config中数据库的地址
+
+
 
 '''登录接口'''
 loginUrl = baseUrl+'/login'
@@ -31,17 +34,6 @@ busiPoolMgtUrl = baseUrl + '/projects'
 busiPoolUserUrl = baseUrl + '/pool_user'          #业务池成员
 
 
-
-
-'''存储池管理'''
-storPoolMgtUrl = baseUrl + '/storage-pools'
-
-
-'''规格管理'''
-flavorMgtUrl = baseUrl + '/flavors'
-delFlavorUrl = baseUrl + '/flavors/batch-delete'
-
-
 '''身份管理》用户管理'''
 userMgtUrl =  baseUrl + '/users'
 delUserUrl =  baseUrl + '/users_delete/'
@@ -60,9 +52,47 @@ roleMgtUrl = baseUrl + '/roles'
 '''运维管理》数据中心'''
 dcURL = baseUrl + '/datacenters'
 
+'''运维管理》节点管理'''
+nodeURL = baseUrl + '/ops/nodes'
 
-'''云中心》镜像'''
+
+'''运维管理》基础网络》外部网络'''
+basicNetworkURL = baseUrl + '/basic-network'
+exNetUrl = baseUrl +'/external-networks'
+sysNetUrl = baseUrl +'/ops/system-networks'
+
+'''存储池管理'''
+storPoolMgtUrl = baseUrl + '/storage-pools'
+
+
+'''系统设置》规格管理'''
+flavorMgtUrl = baseUrl + '/flavors'
+delFlavorUrl = baseUrl + '/flavors/batch-delete'
+
+'''系统设置》授权管理'''
+licenseUrl = baseUrl + '/license'
+licenseCodeUrl = baseUrl + '/license/code'   #获取机器码
+
+'''系统设置》安全设置'''
+ukeyUrl = baseUrl + '/ukey/'
+
+
+'''日志管理》登录日志'''
+loginLogUrl = baseUrl +'/login-logs'
+
+'''日志管理》操作日志'''
+operateLogUrl = baseUrl +'/operation-logs'
+
+
+'''业务视图》云中心》镜像'''
 mirrorUrl = baseUrl + '/images'
+
+
+
+'''业务视图》智能存储》数据盘'''
+datadiskUrl = baseUrl + '/volumes'
 
 '''安全组'''
 securityGrpUrl = baseUrl + '/network-acls'
+
+

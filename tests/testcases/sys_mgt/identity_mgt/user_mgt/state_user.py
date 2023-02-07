@@ -11,7 +11,7 @@ from lib.generateTestCases import __generateTestCases
 from lib.log import logger
 from conf.url_configs import userMgtUrl
 from lib.MySQLHelper import MySQLHelper
-import time
+from lib.commonPanaCloud import creUsers
 
 
 
@@ -31,7 +31,7 @@ class StateUser(MyUnit):
         flag = tx['flag']
         logger.info("*******测试案例名称： TestCase" + caseNum + "_" + caseName + " 执行开始********")
         reqParam = json.JSONDecoder().decode(tx['params'])
-        sql = 'select * from profile_user where is_delete=0 and state=0 order by created_at desc limit 1'
+        sql = 'select * from profile_user where is_delete=0  order by created_at desc limit 1'
         latestUser = MySQLHelper("panacloud").get_one(sql,params={})
         userId = latestUser['id']
         reqUrl = userMgtUrl + '/' + str(userId) + '/state'
@@ -42,6 +42,9 @@ class StateUser(MyUnit):
         if flag == 2:
             sql1 = 'select * from profile_user where is_delete=0 and state=0 order by created_at desc limit 1'
             latestUser1 = MySQLHelper("panacloud").get_one(sql1,params={})
+            #如果返回为空，则创建一个禁用状态的用户
+            if latestUser1 is None:
+                latestUser1 =creUsers(0)
             userId1 = latestUser1['id']
             reqUrl = userMgtUrl + '/' + str(userId1) + '/state'
         if flag == 3:
