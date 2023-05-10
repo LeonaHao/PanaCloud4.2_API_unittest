@@ -44,7 +44,7 @@ class EditBusiPool(MyUnit):
         logger.info("*******测试案例名称： TestCase" + caseNum + "_" + caseName + " 执行开始********")
         reqParam = json.JSONDecoder().decode(tx['params'])
         #获取要编辑的业务池id
-        poolData = getBusiPool()['data']
+        poolData = getBusiPool(regionInfo[0]['name'])['data']
         poolIdList = []
         for item in poolData:
             if 'Auto' in item['name']:

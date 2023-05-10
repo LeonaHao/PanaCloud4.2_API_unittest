@@ -10,7 +10,7 @@ from lib.my_unit import MyUnit
 from lib.generateTestCases import __generateTestCases
 from lib.log import logger
 from conf.url_configs import busiPoolUserUrl
-from lib.commonPanaCloud import getBusiPool
+from lib.commonPanaCloud import getBusiPool,getDC
 
 
 """
@@ -20,6 +20,8 @@ from lib.commonPanaCloud import getBusiPool
 
 class GetBusiPoolUser(MyUnit):
     """管理视图》业务池》获取业务池成员列表"""
+    global regionInfo
+    regionInfo = getDC()
 
     def getTest(self, tx):
         logger.info("****************获取业务池成员列表接口开始****************")
@@ -30,7 +32,7 @@ class GetBusiPoolUser(MyUnit):
         flag = tx['flag']
         logger.info("*******测试案例名称： TestCase" + caseNum + "_" + caseName + " 执行开始********")
         #获取要编辑的业务池id
-        poolData = getBusiPool()['data']
+        poolData = getBusiPool(regionInfo[0]['name'])['data']
         poolIdList = []
         for item in poolData:
             if 'Auto' in item['name']:

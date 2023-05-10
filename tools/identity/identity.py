@@ -17,11 +17,6 @@ def delUser():
     try:
         headers = {'Content-Type': 'application/json',
                         'Authorization':token}
-        #获取用户id列表
-        # Ures = requests.get(url=userMgtUrl,headers =headers, data={},verify=False).json()
-        # UId = []
-        # for item in Ures['data']:
-        #     UId.append(item['id'])
 
         Uid = get_userIds()
 

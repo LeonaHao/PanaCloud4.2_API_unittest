@@ -11,6 +11,7 @@ from lib.generateTestCases import __generateTestCases
 from lib.log import logger
 from conf.url_configs import addGroupMemberUrl
 from lib.commonSQL import get_latest_group_member
+from lib.commonPanaCloud import getDC
 
 """
 管理视图》系统设置》身份管理》用户组》搜索用户组成员
@@ -19,9 +20,13 @@ from lib.commonSQL import get_latest_group_member
 
 class SearchGroupMember(MyUnit):
     """管理视图》系统设置》身份管理》用户组》搜索用户组成员"""
+    global regionInfo
+    regionInfo = getDC()
+
 
     def getTest(self, tx):
         logger.info("****************查询用户组成员接口开始****************")
+        self.headers['region'] = regionInfo[0]['name']
         caseNum = tx['test_num']
         caseName = tx['test_name']
         code = tx['code']

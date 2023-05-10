@@ -9,6 +9,7 @@ from lib.my_unit import MyUnit
 from lib.generateTestCases import __generateTestCases
 from lib.log import logger
 from conf.url_configs import storPoolMgtUrl
+from lib.commonPanaCloud import getDC
 
 
 """
@@ -18,10 +19,12 @@ from conf.url_configs import storPoolMgtUrl
 
 class GetStorPool(MyUnit):
     """管理视图》存储池》获取存储池"""
+    global regionInfo
+    regionInfo = getDC()
 
     def getTest(self, tx):
         logger.info("****************获取存储池接口开始****************")
-
+        self.headers['region'] = regionInfo[0]['name']
         caseNum = tx['test_num']
         caseName = tx['test_name']
         code = tx['code']

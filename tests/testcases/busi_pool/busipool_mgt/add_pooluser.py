@@ -10,7 +10,7 @@ from lib.my_unit import MyUnit
 from lib.generateTestCases import __generateTestCases
 from lib.log import logger
 from conf.url_configs import busiPoolUserUrl,userMgtUrl
-from lib.commonPanaCloud import getBusiPool,getUsers
+from lib.commonPanaCloud import getBusiPool,getUsers,getDC
 from faker import Faker
 import random
 
@@ -23,6 +23,9 @@ import random
 class AddBusiPoolUser(MyUnit):
     """管理视图》业务池》添加业务池成员"""
 
+    global regionInfo
+    regionInfo = getDC()
+
     def getTest(self, tx):
         logger.info("****************获取业务池成员接口开始****************")
 
@@ -32,7 +35,7 @@ class AddBusiPoolUser(MyUnit):
         flag = tx['flag']
         logger.info("*******测试案例名称： TestCase" + caseNum + "_" + caseName + " 执行开始********")
         #获取业务池id
-        poolData = getBusiPool()['data']
+        poolData = getBusiPool(regionInfo[0]['name'])['data']
         poolIdList = []
         for item in poolData:
             if 'Auto' in item['name']:

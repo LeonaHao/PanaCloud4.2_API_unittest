@@ -44,7 +44,7 @@ class StateUser(MyUnit):
             latestUser1 = MySQLHelper("panacloud").get_one(sql1,params={})
             #如果返回为空，则创建一个禁用状态的用户
             if latestUser1 is None:
-                latestUser1 =creUsers(0)
+                latestUser1 =creUsers()
             userId1 = latestUser1['id']
             reqUrl = userMgtUrl + '/' + str(userId1) + '/state'
         if flag == 3:

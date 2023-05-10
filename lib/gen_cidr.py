@@ -27,5 +27,5 @@ def gen_cidr(startIp,endIp):
     except Exception as e:
         print(e)
 
-# if __name__ == '__main__':
-#     print(gen_cidr('192.16.16.10','192.16.246.246'))
+if __name__ == '__main__':
+    print(gen_cidr('192.16.16.10','192.16.246.246'))
