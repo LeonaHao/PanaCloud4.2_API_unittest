@@ -360,7 +360,7 @@ def creDataDisk(dcName,projectId,num):
         headers['region']= dcName
         reqParam ={
                 "name":"cd" + str(num),
-                "disk_type":"filesystem",
+                "disk_type":"block",  #块类型-block  文件类型-filesystem
                 "description":"",
                 "pool_id":"LocalZFS",
                 "size": str(num),
@@ -386,5 +386,5 @@ def batchCreDataDisk(dcName,projectId,startNum,endNum):
         startNum = startNum + 1
 
 
-# creDataDisk("qa_dc20","c00571d312064fb5b93a5714cf622d33",4)
-# batchCreDataDisk("qa_dc20","c00571d312064fb5b93a5714cf622d33",9,15)
+# creDataDisk("qa_dc20","c00571d312064fb5b93a5714cf622d33",8)
+batchCreDataDisk("qa_dc20","c00571d312064fb5b93a5714cf622d33",11,22)

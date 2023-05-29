@@ -55,6 +55,6 @@ def delUG():
         print(e)
 
 
-
-delUser()
-delUG()
+#
+# delUser()
+# delUG()
