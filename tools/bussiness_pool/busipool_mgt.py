@@ -123,7 +123,8 @@ if __name__ == '__main__':
     data =getBusiPool()['data']
     poolIdList = []
     for item in data:
-        if 'Auto' in item['name']:
+
+
             poolIdList.append(item['id'])
 
     #查找业务池的id以及业务池内默认安全组的id，以便在底层删除使用,底层通过    ocs project switch {poolId}、   ocs network acl delete  {securityGroupId}

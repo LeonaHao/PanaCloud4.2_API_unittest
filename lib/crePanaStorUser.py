@@ -18,8 +18,9 @@ def batchCreUsers(startNum, endNum):
             "password":"11112222",
             "group":[]
         }
-        requests.packages.urllib3.disable_warnings()
+
         print(reqParam)
+        requests.packages.urllib3.disable_warnings()
         res=requests.post(url=creUserUrl,headers=headers,json=reqParam,verify=False).json()
         if res['code']==0:
             print("用户创建成功")
@@ -28,4 +29,4 @@ def batchCreUsers(startNum, endNum):
         startNum = startNum + 1
 
 
-batchCreUsers(20,30)
+batchCreUsers(1,3)

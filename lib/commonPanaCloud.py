@@ -386,5 +386,6 @@ def batchCreDataDisk(dcName,projectId,startNum,endNum):
         startNum = startNum + 1
 
 
+
 # creDataDisk("qa_dc20","c00571d312064fb5b93a5714cf622d33",8)
-batchCreDataDisk("qa_dc20","c00571d312064fb5b93a5714cf622d33",11,22)
+# batchCreDataDisk("qa_dc20","c00571d312064fb5b93a5714cf622d33",11,22)
